@@ -266,9 +266,10 @@ class _MyAppState extends State<MyApp> {
           return StatefulBuilder(
             builder: (context, newSetState) {
               return AlertDialog(
+                insetPadding: EdgeInsets.all(10),
                 backgroundColor: Colors.grey[900],
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                    borderRadius: BorderRadius.all(Radius.circular(5.0))),
                 title: Text(
                   "Select Your Location",
                   style: TextStyle(
@@ -276,15 +277,16 @@ class _MyAppState extends State<MyApp> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                titlePadding: EdgeInsets.all(5),
-                //content: Text(curaddress),
+                titlePadding: EdgeInsets.all(0),
                 actions: <Widget>[
                   Text(
-                    curaddress +
+                    "Current Address: " +
+                        curaddress +
                         "\n\nLatitude: " +
                         latitude1.toString() +
                         "\nLongitude: " +
                         longitude2.toString(),
+                    textAlign: TextAlign.start,
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
@@ -292,8 +294,8 @@ class _MyAppState extends State<MyApp> {
                     height: 10,
                   ),
                   Container(
-                    height: screenHeight / 2 ?? 600,
-                    width: screenWidth ?? 360,
+                    height: screenHeight / 1.8,
+                    width: screenWidth / 1,
                     child: GoogleMap(
                         mapType: MapType.normal,
                         initialCameraPosition: _userpos,
